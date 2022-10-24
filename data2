@@ -1,0 +1,3 @@
+select *
+from hr.products pr
+where exists(select 1 from hr.sales sl where sl.product_id=pr.product_id);
