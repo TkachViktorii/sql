@@ -1,0 +1,25 @@
+--Усі регіони та кількість працівників у них
+select rg.region_name,count(em.employee_id) as cnt
+from hr.regions rg
+left outer join hr.countries c
+on rg.region_id=c.region_id
+left outer join hr.locations l
+on c.country_id=l.country_id
+left outer join hr.departments d
+on l.location_id=d.location_id
+left outer join hr.employees em
+on d.department_id=em.department_id
+group by region_name;
+
+--Назви регіонів та кількість працівників, якщо в них працює хоча б одна людина
+select rg.region_name,count(em.employee_id) as cnt
+from hr.regions rg
+inner join hr.countries c
+on rg.region_id=c.region_id
+inner join hr.locations l
+on c.country_id=l.country_id
+inner join hr.departments d
+on l.location_id=d.location_id
+inner join hr.employees em
+on d.department_id=em.department_id
+group by region_name;
