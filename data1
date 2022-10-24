@@ -1,0 +1,9 @@
+select sl.EMPLOYEE_ID,
+       (select em.first_name||' '||em.last_name
+        from hr.employees em
+        where sl.employee_id=em.employee_id) as name_emp,
+       sl.DT_OPERATIONS, 
+       sl.PRODUCT_ID, 
+       sl.COUNT_SALES, 
+       sl.SUM_SALES
+from hr.sales sl;
