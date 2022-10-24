@@ -1,0 +1,8 @@
+select em.employee_id,
+       em.first_name,
+       em.hire_date,
+       case when em.employee_id between 100 and 130 then 'Level_1'
+            when em.employee_id between 131 and 180 then 'Level_2'
+            else 'Level_3'
+       end as degree
+from hr.employees em;
