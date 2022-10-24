@@ -1,0 +1,7 @@
+reate table m_vika.product
+(
+product_id number,
+product_name varchar(20),
+count_product number,
+price_sales number
+);
