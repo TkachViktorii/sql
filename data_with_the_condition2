@@ -1,0 +1,9 @@
+select em.department_id,
+       min(em.salary) as min_sul,
+       max(em.salary) as max_sul,
+       min(to_date(hire_date)) as min_dat,
+       max(to_date(hire_date)) as max_dat,
+       count(em.department_id) as count
+from hr.employees em
+group by em.department_id
+order by count(em.department_id) desc;
