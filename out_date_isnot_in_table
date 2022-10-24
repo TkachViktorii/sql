@@ -1,0 +1,25 @@
+select id.product_id,
+       pr.product_name,
+       pr.count_product,
+       pr.price_sales
+from (select product_id
+      from hr.products p
+      minus
+      select product_id
+      from hr.sales sl) id
+left outer join hr.products pr
+on id.product_id=pr.product_id
+order by product_id;
+
+--*******************************
+--без ід продукту
+select pr.product_name,
+       pr.count_product,
+       pr.price_sales
+from (select product_id
+      from hr.products p
+      minus
+      select product_id
+      from hr.sales sl) id
+left outer join hr.products pr
+on id.product_id=pr.product_id;
