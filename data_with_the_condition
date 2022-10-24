@@ -1,0 +1,4 @@
+select *
+from HR.employees em
+where em.hire_date between add_months(trunc(sysdate, 'yyyy'),-17*12+7) and add_months(trunc(sysdate, 'yyyy'), -17*12+9) -1/86400
+order by em.hire_date;
