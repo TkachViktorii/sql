@@ -1,0 +1,4 @@
+select *
+from hr.sales sl
+where sl.dt_operations between add_months(trunc(sysdate, 'mm'), -1) and trunc(sysdate, 'mm') - interval '1' second
+order by sl.dt_operations;
