@@ -1,0 +1,15 @@
+select em.FIRST_NAME,
+       em.LAST_NAME,
+       em.PHONE_NUMBER,
+       em.EMAIL,
+       em.SALARY,
+       sl.EMPLOYEE_ID,
+       sl.DT_OPERATIONS,
+       sl.PRODUCT_ID,
+       sl.COUNT_SALES
+from hr.sales sl
+left outer join hr.employees em
+on sl.EMPLOYEE_ID=em.EMPLOYEE_ID
+where sl.dt_operations between trunc(sysdate, 'mm') 
+and add_months(trunc(sysdate, 'mm'), +1) - interval '1' second
+order by sl.dt_operations;  
