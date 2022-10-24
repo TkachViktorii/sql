@@ -1,0 +1,10 @@
+select pr.PRODUCT_NAME,
+       sl.employee_id,
+       sl.dt_operations,
+       sl.product_id,
+       sl.count_sales,
+       sl.sum_sales
+from hr.products pr
+left outer join hr.sales sl
+on sl.product_id=pr.product_id
+order by sl.product_id asc;
